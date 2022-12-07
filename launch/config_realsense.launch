@@ -54,26 +54,4 @@ Date: 2019/10/08
     <arg name="py_openpose_path" value="$(arg py_openpose_path)" />
   </include>
 
-  <!-- invoke realsense camera ros package -->
-  <group if="$(arg pointcloud)" >
-    <include file="$(find realsense2_camera)/launch/rs_camera.launch" >
-      <arg name="align_depth" value="true" />
-      <arg name="filters" value="pointcloud" />
-    </include>
-    <!-- invoke rviz -->
-    <group if="$(arg rviz)" >
-      <node pkg="rviz" type="rviz" respawn="false" required="true" name="rviz" args="-d $(find ros_openpose)/files/person_pointcloud_realsense.rviz" />
-    </group>
-  </group>
-
-  <!-- invoke realsense camera ros package -->
-  <group unless="$(arg pointcloud)" >
-    <include file="$(find realsense2_camera)/launch/rs_camera.launch" >
-      <arg name="align_depth" value="true" />
-    </include>
-    <!-- invoke rviz -->
-    <group if="$(arg rviz)" >
-      <node pkg="rviz" type="rviz" respawn="false" required="true" name="rviz" args="-d $(find ros_openpose)/files/only_person_realsense.rviz" />
-    </group>
-  </group>
 </launch>

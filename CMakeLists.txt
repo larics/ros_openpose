@@ -19,11 +19,13 @@ find_package(catkin REQUIRED COMPONENTS
 ## Make sure 'FindGFlags.cmake' and 'FindGlog.cmake' are visible to cmake
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules")
 
+
 ## Add OpenPose and other dependencies
 find_package(GFlags)
 find_package(Glog)
 find_package(OpenCV REQUIRED)
 find_package(OpenPose REQUIRED)
+find_package(Threads REQUIRED)
 find_package(OpenMP)
 
 if(OPENMP_FOUND)
