@@ -16,7 +16,7 @@
 #include <openpose/headers.hpp>
 
 // ros_openpose headers
-#include <ros_openpose/Frame.h>
+#include <ros_openpose_msgs/Frame.h>
 #include <ros_openpose/cameraReader.hpp>
 
 // define a macro for compatibility with older versions
@@ -282,7 +282,7 @@ public:
 
 private:
   const bool mNoDepth;
-  ros_openpose::Frame mFrame;
+  ros_openpose_msgs::Frame mFrame;
   const ros::Publisher mFramePublisher;
   const std::shared_ptr<ros_openpose::CameraReader> mSPtrCameraReader;
 };
@@ -560,7 +560,7 @@ int main(int argc, char* argv[])
   const auto cameraReader = std::make_shared<ros_openpose::CameraReader>(nh, colorTopic, depthTopic, camInfoTopic);
 
   // the frame consists of the location of detected body parts of each person
-  const ros::Publisher framePublisher = nh.advertise<ros_openpose::Frame>(pubTopic, 1);
+  const ros::Publisher framePublisher = nh.advertise<ros_openpose_msgs::Frame>(pubTopic, 1);
 
   try
   {

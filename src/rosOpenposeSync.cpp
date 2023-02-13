@@ -8,8 +8,8 @@
 #include <opencv2/core/core.hpp>
 #include <openpose/flags.hpp>
 #include <openpose/headers.hpp>
-#include <ros_openpose/Frame.h>
-#include <ros_openpose/BodyPart.h>
+#include <ros_openpose_msgs/Frame.h>
+#include <ros_openpose_msgs/BodyPart.h>
 
 // define a macro for compatibility with older versions
 #define OPENPOSE1POINT6_OR_HIGHER OpenPose_VERSION_MAJOR >= 1 && OpenPose_VERSION_MINOR >= 6
@@ -33,7 +33,7 @@ private:
     float _mm_to_m;
 
     cv::Mat _color_img, _depth_img;
-    ros_openpose::Frame _frame_msg;
+    ros_openpose_msgs::Frame _frame_msg;
 public:
     rosOpenPose(ros::NodeHandle* nh, op::Wrapper* op_wrapper, const std::string& color_topic, const std::string& depth_topic,
                 const std::string& cam_info_topic, const std::string& pub_topic, const std::string& frame_id, const bool& no_depth):
@@ -53,7 +53,7 @@ public:
         _mm_to_m = (depth_encoding == image_encodings::TYPE_16UC1) ? 0.001 : 1.;
 
         // Initialize frame publisher
-        _pub = _nh->advertise<ros_openpose::Frame>(pub_topic, 10);
+        _pub = _nh->advertise<ros_openpose_msgs::Frame>(pub_topic, 10);
 
         // Start color & depth subscribers.
         _color_sub.subscribe(*_nh, color_topic, 1);
@@ -63,7 +63,7 @@ public:
     }
 
     template <typename key_points>
-    void assign_msg_vals(ros_openpose::BodyPart& part, const key_points& kp, const int& i) {
+    void assign_msg_vals(ros_openpose_msgs::BodyPart& part, const key_points& kp, const int& i) {
         // Assign pixel position and score from Openpose.
         float u = kp[i], v = kp[i+1], s = kp[i+2];
         part.pixel.x = u;

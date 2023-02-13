@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 
 # import modules
 import sys
@@ -8,7 +8,7 @@ import argparse
 import message_filters
 import numpy as np
 from cv_bridge import CvBridge, CvBridgeError
-from ros_openpose.msg import Frame, Person, BodyPart, Pixel
+from ros_openpose_msgs.msg import Frame, Person, BodyPart, Pixel
 from sensor_msgs.msg import Image, CameraInfo
 
 

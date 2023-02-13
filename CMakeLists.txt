@@ -14,6 +14,7 @@ find_package(catkin REQUIRED COMPONENTS
   image_transport
   message_generation
   message_filters
+  ros_openpose_msgs
 )
 
 ## Make sure 'FindGFlags.cmake' and 'FindGlog.cmake' are visible to cmake
@@ -39,19 +40,15 @@ add_definitions( -DOpenPose_VERSION_PATCH=${OpenPose_VERSION_PATCH} )
 MESSAGE(STATUS "OpenPose VERSION: " ${OpenPose_VERSION})
 
 ## Declare ROS messages
-add_message_files(
-  FILES
-  Pixel.msg
-  BodyPart.msg
-  Person.msg
-  Frame.msg
-)
+#add_message_files(
+#  FILES
+#)
 
-generate_messages(
-  DEPENDENCIES
-  std_msgs
-  geometry_msgs
-)
+#generate_messages(
+#  DEPENDENCIES
+#  std_msgs
+#  geometry_msgs
+#)
 
 # catkin specific configuration
 catkin_package(
@@ -62,6 +59,7 @@ catkin_package(
   message_runtime
   sensor_msgs
   message_filters
+  ros_openpose_msgs
 )
 
 ## Build
@@ -95,8 +93,8 @@ add_executable(rosOpenposeSync
 
 # Bug fix
 # src: https://github.com/ravijo/ros_openpose/issues/14#issuecomment-631164300
-add_dependencies(rosOpenposeAsync ros_openpose_generate_messages_cpp)
-add_dependencies(rosOpenposeSync ros_openpose_generate_messages_cpp)
+# add_dependencies(rosOpenposeAsync ros_openpose_generate_messages_cpp)
+# add_dependencies(rosOpenposeSync ros_openpose_generate_messages_cpp)
 
 target_link_libraries(rosOpenposeAsync
   ${OpenPose_LIBS}

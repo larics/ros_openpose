@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 # visualizer.py: rviz visualizer
@@ -8,7 +8,7 @@
 # import modules
 import math
 import rospy
-from ros_openpose.msg import Frame
+from ros_openpose_msgs.msg import Frame
 from std_msgs.msg import ColorRGBA
 from geometry_msgs.msg import Vector3, Point
 from visualization_msgs.msg import Marker, MarkerArray

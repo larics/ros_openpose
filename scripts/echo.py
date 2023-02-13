@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 # echo.py: sample script to print ros message to terminal
@@ -7,7 +7,7 @@
 
 # import modules
 import rospy
-from ros_openpose.msg import Frame
+from ros_openpose_msgs.msg import Frame
 
 
 def callback(msg):
