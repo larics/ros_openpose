@@ -7,7 +7,7 @@ Date: 2019/11/23
 <launch>
 
   <!-- set this flag to switch ros_openpose to a synchronous setting -->
-  <arg name="synchronous" default="false" />
+  <arg name="synchronous" default="true" />
 
   <!-- specify path to python openpose library (specifying this will switch synchronous setting from c++ to python) -->
   <arg name="py_openpose_path" default="none" />
