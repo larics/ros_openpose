@@ -7,7 +7,7 @@ Date: 2019/11/23
 <launch>
 
   <!-- set this flag to switch ros_openpose to a synchronous setting -->
-  <arg name="synchronous" default="false" />
+  <arg name="synchronous" default="true" />
 
   <!-- specify path to python openpose library (specifying this will switch synchronous setting from c++ to python) -->
   <arg name="py_openpose_path" default="none" />
@@ -16,10 +16,10 @@ Date: 2019/11/23
   <arg name="camera" default="realsense" />
 
   <!-- set this flag to see invoke RViz -->
-  <arg name="rviz" default="true" />
+  <arg name="rviz" default="false" />
 
   <!-- set this flag to invoke the visualization of the skeleton -->
-  <arg name="skeleton" default="true" />
+  <arg name="skeleton" default="false" />
 
   <!-- set this flag to see the pointcloud in the visualization inside RViz  -->
   <arg name="pointcloud" default="true" />
@@ -50,7 +50,7 @@ Date: 2019/11/23
   <arg name="id_text_offset" default="-0.05" />
 
   <!-- flag to enable printing ros message to terminal -->
-  <arg name="print" default="true" />
+  <arg name="print" default="false" />
 
   <include file="$(find ros_openpose)/launch/config_$(arg camera).launch" >
     <arg name="rviz" value="$(arg rviz)" />

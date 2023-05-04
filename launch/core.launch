@@ -63,14 +63,14 @@ Date: 2020/03/02
   <!-- invoke visualizer node -->
   <group unless="$(arg no_depth)" >
     <group if="$(arg skeleton)" >
-      <node name="visualizer" pkg="ros_openpose" type="visualizer.py" output="screen" >
+      <!--node name="visualizer" pkg="ros_openpose" type="visualizer.py" output="screen" >
         <param name="frame_id" value="$(arg frame_id)" />
         <param name="pub_topic" value="$(arg pub_topic)" />
         <param name="id_text_size" value="$(arg id_text_size)" />
         <param name="id_text_offset" value="$(arg id_text_offset)" />
         <param name="skeleton_hands" value="$(arg skeleton_hands)" />
         <param name="skeleton_line_width" value="$(arg skeleton_line_width)" />
-      </node>
+      </node-->
     </group>
   </group>
 
