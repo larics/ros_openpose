@@ -284,6 +284,16 @@ If you used `ros_openpose` for your work, please cite it.
 ## Issues (or Error Reporting) 
 Please check [here](https://github.com/ravijo/ros_openpose/issues) and create issues accordingly.
 
+## LD_CONFIG_PATH
+
+For the caffe error: 
+```
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda/lib64
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib/libcaffe.so
+export PATH=${PATH}:/usr/local/cuda-12.0/bin
+```
+
+
 
 ## Thanks
 Following authors are sincerely acknowledged for the improvements of this package-
