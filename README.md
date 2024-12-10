@@ -284,6 +284,20 @@ If you used `ros_openpose` for your work, please cite it.
 ## Issues (or Error Reporting) 
 Please check [here](https://github.com/ravijo/ros_openpose/issues) and create issues accordingly.
 
+## Extra info: 
+
+How to run openpose after succesful building on CUDA 12 and 
+downloading weights. 
+
+Huge problem are weights that are located [here](https://github.com/AlecDusheck/openpose). 
+
+Besides that, compile issue can be a problem and you can solve it [here](https://github.com/CMU-Perceptual-Computing-Lab/openpose/issues/1953). 
+
+Run openpose demo with: 
+
+```
+./build/examples/openpose/openpose.bin -net_resolution 256x128 --face --hand
+```
 
 ## Thanks
 Following authors are sincerely acknowledged for the improvements of this package-
