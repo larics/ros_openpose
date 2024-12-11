@@ -13,16 +13,16 @@ Date: 2019/11/23
   <arg name="py_openpose_path" default="none" />
 
   <!-- the value of this argument can only be one of the following: realsense, kinect, zed2, nodepth -->
-  <arg name="camera" default="realsense" />
+  <arg name="camera" default="luxonis" />
 
   <!-- set this flag to see invoke RViz -->
-  <arg name="rviz" default="true" />
+  <arg name="rviz" default="false" />
 
   <!-- set this flag to invoke the visualization of the skeleton -->
-  <arg name="skeleton" default="true" />
+  <arg name="skeleton" default="false" />
 
   <!-- set this flag to see the pointcloud in the visualization inside RViz  -->
-  <arg name="pointcloud" default="true" />
+  <arg name="pointcloud" default="false" />
 
   <!-- set this flag to invoke the visualization of the hands of the skeleton -->
   <arg name="skeleton_hands" default="false" />
@@ -35,7 +35,7 @@ Date: 2019/11/23
     <arg name="openpose_args" value="--hand --disable_multi_thread --model_folder /home/ravi/openpose/models/" />
   ?>
   <!-- full path to the model dir of openpose -->
-  <arg name="openpose_args" value="--model_folder $(env HOME)/openpose/models/" />
+  <arg name="openpose_args" value="-net_resolution 256x128 --hand --model_folder /root/openpose/models/"/>
 
   <!-- rostopic to publish the 3D skeleton data -->
   <arg name="pub_topic" default="/frame" />
